@@ -20,12 +20,15 @@ namespace Paper_Rock_Scissors_Game
             Console.BackgroundColor = ConsoleColor.White;
             Console.Clear();
 
-            int numberOfGames = 10;
+            int numberOfGames = 5;
             int playerScore = 0;
             int computerScore = 0;
+            int roundsCounter = 0;
 
             while (true)
             {
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine($"Round {++roundsCounter}");
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Enter one of the characters: S, P or R");
                 char playerChoice = Convert.ToChar(Console.ReadLine().ToUpper());
@@ -118,22 +121,35 @@ namespace Paper_Rock_Scissors_Game
 
                 if (numberOfGames == 0)
                 {
-                    break;
+                    if (computerScore > playerScore)
+                    {
+                        Console.WriteLine($"The winner of the game is the computer, which has the score {computerScore}");
+                    }
+                    else if (playerScore > computerScore)
+                    {
+                        Console.WriteLine($"The winner of the game is the player, which has the score {playerScore}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Equality!");
+                    }
+
+                    Console.WriteLine("Replay? Press 'Y' for yes or any key for quit. ");
+                    char response = char.Parse(Console.ReadLine());
+                    response = Char.ToLower(response);
+
+                    if (response == 'y')
+                    {
+                        Play_Game();
+                    }
+                    else
+                    {
+                        break;
+                    }
+
                 }
             }
 
-            if (computerScore > playerScore)
-            {
-                Console.WriteLine($"The winner of the game is the computer, which has the score {computerScore}");
-            }
-            else if (playerScore > computerScore)
-            {
-                Console.WriteLine($"The winner of the game is the player, which has the score {playerScore}");
-            }
-            else
-            {
-                Console.WriteLine("Equality!");
-            }
 
 
             // ToDo: find a way to close the program : 
