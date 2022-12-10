@@ -12,6 +12,7 @@ namespace Paper_Rock_Scissors_Game
         {
             Play_Game();
         }
+
         public static void Play_Game()
         {
             Random rd = new Random();
@@ -146,16 +147,8 @@ namespace Paper_Rock_Scissors_Game
                     {
                         break;
                     }
-
                 }
             }
-
-
-
-            // ToDo: find a way to close the program : 
-            // 1. ask a question after each game, in order to replay or quit;
-            // 2. Establish a number of games and a score in order to print the winner;
-
             Console.WriteLine("Press any key to close the console");
             Console.ReadKey();
         }
